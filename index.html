@@ -19,7 +19,7 @@
         .questionnaire input[type="submit"] {
             margin-top: 10px;
         }
-        .video-section {
+        .video-section, .products {
             display: none;
             margin: 20px;
         }
@@ -28,7 +28,6 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 10px;
-            margin: 20px;
         }
         .products img {
             width: 150px;
@@ -71,6 +70,7 @@
             event.preventDefault();
             document.querySelector('.questionnaire').style.display = 'none';
             document.querySelector('.video-section').style.display = 'block';
+            document.querySelector('.products').style.display = 'flex';
         });
     </script>
 </body>
