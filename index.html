@@ -19,7 +19,7 @@
         .questionnaire input[type="submit"] {
             margin-top: 10px;
         }
-        .video-section, .products {
+        .video-section, .products-section {
             display: none;
             margin: 20px;
         }
@@ -60,17 +60,19 @@
             Browser-ul dvs. nu suportă tag-ul video.
         </video>
     </div>
-    <div class="products">
-        <a href="https://linkprodus1.com" target="_blank"><img src="produs1.jpg" alt="Produs 1"></a>
-        <a href="https://linkprodus2.com" target="_blank"><img src="produs2.jpg" alt="Produs 2"></a>
-        <a href="https://linkprodus3.com" target="_blank"><img src="produs3.jpg" alt="Produs 3"></a>
+    <div class="products-section">
+        <div class="products">
+            <a href="https://linkprodus1.com" target="_blank"><img src="produs1.jpg" alt="Produs 1"></a>
+            <a href="https://linkprodus2.com" target="_blank"><img src="produs2.jpg" alt="Produs 2"></a>
+            <a href="https://linkprodus3.com" target="_blank"><img src="produs3.jpg" alt="Produs 3"></a>
+        </div>
     </div>
     <script>
         document.getElementById('questionnaireForm').addEventListener('submit', function(event) {
             event.preventDefault();
             document.querySelector('.questionnaire').style.display = 'none';
             document.querySelector('.video-section').style.display = 'block';
-            document.querySelector('.products').style.display = 'flex';
+            document.querySelector('.products-section').style.display = 'block';
         });
     </script>
 </body>
