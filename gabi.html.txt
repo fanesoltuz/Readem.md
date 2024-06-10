@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Unică</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .questionnaire {
+            margin: 20px;
+        }
+        .questionnaire input[type="submit"] {
+            margin-top: 10px;
+        }
+        .video-section {
+            display: none;
+            margin: 20px;
+        }
+        .products {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px;
+        }
+        .products img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="questionnaire">
+        <h2>Răspundeți la următoarele întrebări:</h2>
+        <form id="questionnaireForm">
+            <label for="question1">Întrebarea 1: </label>
+            <input type="text" id="question1" name="question1"><br>
+            <label for="question2">Întrebarea 2: </label>
+            <input type="text" id="question2" name="question2"><br>
+            <label for="question3">Întrebarea 3: </label>
+            <input type="text" id="question3" name="question3"><br>
+            <label for="question4">Întrebarea 4: </label>
+            <input type="text" id="question4" name="question4"><br>
+            <label for="question5">Întrebarea 5: </label>
+            <input type="text" id="question5" name="question5"><br>
+            <input type="submit" value="Trimite">
+        </form>
+    </div>
+    <div class="video-section">
+        <video width="640" height="360" controls autoplay loop>
+            <source src="video.mp4" type="video/mp4">
+            Browser-ul dvs. nu suportă tag-ul video.
+        </video>
+    </div>
+    <div class="products">
+        <a href="https://linkprodus1.com" target="_blank"><img src="produs1.jpg" alt="Produs 1"></a>
+        <a href="https://linkprodus2.com" target="_blank"><img src="produs2.jpg" alt="Produs 2"></a>
+        <a href="https://linkprodus3.com" target="_blank"><img src="produs3.jpg" alt="Produs 3"></a>
+    </div>
+    <script>
+        document.getElementById('questionnaireForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.querySelector('.questionnaire').style.display = 'none';
+            document.querySelector('.video-section').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
