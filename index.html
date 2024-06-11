@@ -1,103 +1,145 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Unică</title>
+    <title>Quiz Project</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 20px;
+            background-color: #f4f4f4;
         }
-        .questionnaire {
-            margin: 20px;
+
+        h1, h2 {
+            color: #333;
         }
-        .questionnaire input[type="submit"] {
-            margin-top: 10px;
+
+        #quiz-container, #video-container, #products-container {
+            margin: 20px 0;
         }
-        .video-section, .products-section, .answers-section {
-            display: none;
-            margin: 20px;
+
+        .question {
+            margin-bottom: 20px;
         }
-        .products {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
+
+        .answer {
+            color: #007BFF;
         }
-        .products img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            cursor: pointer;
+
+        .product {
+            margin: 10px 0;
         }
-        .error {
-            color: red;
+
+        .product img {
+            width: 100px;
+            height: 100px;
         }
     </style>
 </head>
 <body>
-    <div class="questionnaire">
-        <h2>Răspundeți la următoarele întrebări:</h2>
-        <form id="questionnaireForm">
-            <div>
-                <label>Întrebarea 1: Do you know how many women suffer domestic violence in the world?</label><br>
-                <input type="radio" id="q1a1" name="question1" value="greșit">
-                <label for="q1a1">587 million women</label><br>
-                <input type="radio" id="q1a2" name="question1" value="corect">
-                <label for="q1a2">736 million women</label><br>
-                <input type="radio" id="q1a3" name="question1" value="greșit">
-                <label for="q1a3">1.9 billion women</label>
+    <div id="quiz-container">
+        <h1>Quiz</h1>
+        <div id="quiz">
+            <div class="question">
+                <p>What is the documented number of women worldwide who have been victims of domestic violence as a result of a study published in September of 2023?</p>
+                <input type="radio" name="q1" value="736 million women"> 736 million women<br>
+                <input type="radio" name="q1" value="1.9 billion women"> 1.9 billion women<br>
+                <button onclick="revealAnswer('q1')">Reveal Answer</button>
+                <p id="answer-q1" class="answer"></p>
             </div>
-            <div>
-                <label>Întrebarea 2: Worldwide estimate, how many percent of women have been subjected to some form of physical and/or sexual violence by their intimate partner from the age of 15-49?</label><br>
-                <input type="radio" id="q2a1" name="question2" value="greșit">
-                <label for="q2a1">35%</label><br>
-                <input type="radio" id="q2a2" name="question2" value="corect">
-                <label for="q2a2">27%</label><br>
-                <input type="radio" id="q2a3" name="question2" value="greșit">
-                <label for="q2a3">11%</label>
+            <div class="question">
+                <p>In the European Union, what percentage of women have been victims of forced sex at some point in their life since the age of 15?</p>
+                <input type="radio" name="q2" value="45% to 55%"> 45% to 55%<br>
+                <input type="radio" name="q2" value="27% to 42%"> 27% to 42%<br>
+                <input type="radio" name="q2" value="19% to 34%"> 19% to 34%<br>
+                <button onclick="revealAnswer('q2')">Reveal Answer</button>
+                <p id="answer-q2" class="answer"></p>
             </div>
-            <div>
-                <label>Întrebarea 3: What is the documented number of female teens and pre adults that have been victims of any form of sexual assault?</label><br>
-                <input type="radio" id="q3a1" name="question3" value="greșit">
-                <label for="q3a1">7 million</label><br>
-                <input type="radio" id="q3a2" name="question3" value="greșit">
-                <label for="q3a2">12 million</label><br>
-                <input type="radio" id="q3a3" name="question3" value="corect">
-                <label for="q3a3">15 million</label>
+            <div class="question">
+                <p>How many victims of trafficking are women and girls? And how many of them are trafficked for sexual exploitation?</p>
+                <input type="radio" name="q3" value="72% of victims are females and 4 out of 5 are sexually exploited."> 72% of victims are females and 4 out of 5 are sexually exploited.<br>
+                <input type="radio" name="q3" value="89% of victims are females and 7 out of 10 are sexually exploited."> 89% of victims are females and 7 out of 10 are sexually exploited.<br>
+                <input type="radio" name="q3" value="58% of victims are females and 2 out of 5 are sexually exploited."> 58% of victims are females and 2 out of 5 are sexually exploited.<br>
+                <button onclick="revealAnswer('q3')">Reveal Answer</button>
+                <p id="answer-q3" class="answer"></p>
             </div>
-            <input type="submit" value="Trimite">
-        </form>
-        <p id="errorMessage" class="error"></p>
+            <div class="question">
+                <p>Before what age is female genital mutilation performed in the majority of countries?</p>
+                <input type="radio" name="q4" value="5 years old"> 5 years old<br>
+                <input type="radio" name="q4" value="12 years old"> 12 years old<br>
+                <input type="radio" name="q4" value="9 years old"> 9 years old<br>
+                <button onclick="revealAnswer('q4')">Reveal Answer</button>
+                <p id="answer-q4" class="answer"></p>
+            </div>
+            <div class="question">
+                <p>How many women and girls that are alive as of today have been forcefully married before their 18th birthday?</p>
+                <input type="radio" name="q5" value="650 million"> 650 million<br>
+                <input type="radio" name="q5" value="2 billion"> 2 billion<br>
+                <input type="radio" name="q5" value="423 million"> 423 million<br>
+                <button onclick="revealAnswer('q5')">Reveal Answer</button>
+                <p id="answer-q5" class="answer"></p>
+            </div>
+        </div>
+        <button onclick="showVideo()">Submit</button>
     </div>
-    <div class="video-section">
-        <video width="640" height="360" controls autoplay loop>
-            <source src="video.mp4" type="video/mp4">
-            Browser-ul dvs. nu suportă tag-ul video.
+    
+    <div id="video-container" style="display:none;">
+        <h1>Video</h1>
+        <video controls>
+            <source src="your-video-url.mp4" type="video/mp4">
+            Your browser does not support the video tag.
         </video>
+        <div id="correct-answers">
+            <h2>Correct Answers</h2>
+            <p id="correct-answer-q1"></p>
+            <p id="correct-answer-q2"></p>
+            <p id="correct-answer-q3"></p>
+            <p id="correct-answer-q4"></p>
+            <p id="correct-answer-q5"></p>
+        </div>
     </div>
-    <div class="answers-section">
-        <h2>Răspunsurile corecte la întrebări sunt:</h2>
-        <p>
-            <strong>Întrebarea 1:</strong> Do you know how many women suffer domestic violence in the world?<br>
-            Globally, an estimated 736 million women—almost one in three—have been subjected to physical and/or sexual intimate partner violence, non-partner sexual violence, or both at least once in their life (30 per cent of women aged 15 and older). This figure does not include sexual harassment. Răspuns: 736 million women
-        </p>
-        <p>
-            <strong>Întrebarea 2:</strong> Worldwide estimate, how many percent of women have been subjected to some form of physical and/or sexual violence by their intimate partner from the age of 15-49?<br>
-            Răspuns: 27%
-        </p>
-        <p>
-            <strong>Întrebarea 3:</strong> What is the documented number of female teens and pre adults that have been victims of any form of sexual assault?<br>
-            Approximately 15 million adolescent girls (aged 15 to 19) worldwide have experienced forced sex at some point in their life. Răspuns: 15 million
-        </p>
+    
+    <div id="products-container" style="display:none;">
+        <h2>Products</h2>
+        <div class="product">
+            <img src="product1.jpg" alt="Product 1">
+            <p><a href="product1-link.html">Product 1</a></p>
+        </div>
+        <div class="product">
+            <img src="product2.jpg" alt="Product 2">
+            <p><a href="product2-link.html">Product 2</a></p>
+        </div>
+        <div class="product">
+            <img src="product3.jpg" alt="Product 3">
+            <p><a href="product3-link.html">Product 3</a></p>
+        </div>
     </div>
-    <div class="products-section">
-        <h2>Produse</h2>
-        <div class="products">
-            <a href="https://linkprodus1.com" target="_blank"><img src="produs1.jpg" alt="Produs 1"></a>
-            <a href="https://
+
+    <script>
+        function revealAnswer(questionId) {
+            const answers = {
+                'q1': "Globally, an estimated 736 million women—almost one in three—have been subjected to physical and/or sexual intimate partner violence, non-partner sexual violence, or both at least once in their life (30 per cent of women aged 15 and older). This figure does not include sexual harassment",
+                'q2': "45% to 55% of women have experienced sexual harassment since the age of 15 in the European Union confirmed by an EU-wide Survey done by the European Union Agency for Fundamental Rights in 2014.",
+                'q3': "Human trafficking is the acquisition and exploitation of people, through means, such as force, fraud, coercion, or deception. This heinous crime ensnares millions of women and girls worldwide, many of whom are sexually exploited. 72% of all trafficking victims worldwide are women and girls. And 4 out of 5 trafficked women are trafficked for sexual exploitation.",
+                'q4': "FGM includes procedures that intentionally alter or cause injury to the female genital organs for non-medical reasons. Beyond extreme physical and psychological pain, the practice carries many health risks, including death. At least 200 million women and girls aged 15-49 have undergone FGM in 30 countries where representative data is available. In most of these countries, the majority of girls were cut before age 5.",
+                'q5': "Child marriage usually means an end to girl’s education, vocation and her right to make life choices. Research confirms that girls who marry in childhood are at greater risk for intimate partner violence than girls of the same age who marry later. 650 Million women and girls alive today were married before their 18th birthday. Almost 4 in 10 girls in sub-Saharan Africa were married before age 18."
+            };
+            document.getElementById(`answer-${questionId}`).textContent = answers[questionId];
+        }
+
+        function showVideo() {
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('video-container').style.display = 'block';
+            document.getElementById('products-container').style.display = 'block';
+
+            document.getElementById('correct-answer-q1').textContent = "Correct Answer: 736 million women";
+            document.getElementById('correct-answer-q2').textContent = "Correct Answer: 45% to 55%";
+            document.getElementById('correct-answer-q3').textContent = "Correct Answer: 72% of victims are females and 4 out of 5 are sexually exploited.";
+            document.getElementById('correct-answer-q4').textContent = "Correct Answer: 5 years old";
+            document.getElementById('correct-answer-q5').textContent = "Correct Answer: 650 million";
+        }
+    </script>
+</body>
+</html>
