@@ -81,28 +81,29 @@
             Browser-ul dvs. nu suportă tag-ul video.
         </video>
     </div>
+    <div class="answers-section">
+        <h2>Răspunsurile corecte la întrebări sunt:</h2>
+        <p>1. 736 million women</p>
+        <p>2. 27%</p>
+        <p>3. What is the documented number of female teens and pre adults that have been victims of any form of sexual assault? Răspuns: 15 million</p>
+    </div>
     <div class="products-section">
+        <h2>Produse</h2>
         <div class="products">
             <a href="https://linkprodus1.com" target="_blank"><img src="produs1.jpg" alt="Produs 1"></a>
             <a href="https://linkprodus2.com" target="_blank"><img src="produs2.jpg" alt="Produs 2"></a>
             <a href="https://linkprodus3.com" target="_blank"><img src="produs3.jpg" alt="Produs 3"></a>
         </div>
     </div>
-    <div class="answers-section">
-        <h2>Răspunsurile corecte la întrebări sunt:</h2>
-        <p>1. 736 million women</p>
-        <p>2. 27%</p>
-        <p>3. 15 million</p>
-    </div>
     <script>
         document.getElementById('questionnaireForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
-            // Hide the questionnaire and show the video, products, and answers sections
+            // Hide the questionnaire and show the video, answers, and products sections
             document.querySelector('.questionnaire').style.display = 'none';
             document.querySelector('.video-section').style.display = 'block';
-            document.querySelector('.products-section').style.display = 'block';
             document.querySelector('.answers-section').style.display = 'block';
+            document.querySelector('.products-section').style.display = 'block';
         });
     </script>
 </body>
