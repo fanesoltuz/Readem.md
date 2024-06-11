@@ -97,11 +97,6 @@
     <script>
         document.getElementById('questionnaireForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            const answers = document.querySelectorAll('input[type="radio"]:checked');
-            if (answers.length < 3) { // update this number based on the total number of questions
-                document.getElementById('errorMessage').innerText = "Te rog să răspunzi la toate întrebările.";
-                return;
-            }
 
             // Hide the questionnaire and show the video, products, and answers sections
             document.querySelector('.questionnaire').style.display = 'none';
