@@ -35,24 +35,45 @@
             object-fit: cover;
             cursor: pointer;
         }
+        .error {
+            color: red;
+        }
     </style>
 </head>
 <body>
     <div class="questionnaire">
         <h2>Răspundeți la următoarele întrebări:</h2>
         <form id="questionnaireForm">
-            <label for="question1">Întrebarea 1: </label>
-            <input type="text" id="question1" name="question1"><br>
-            <label for="question2">Întrebarea 2: </label>
-            <input type="text" id="question2" name="question2"><br>
-            <label for="question3">Întrebarea 3: </label>
-            <input type="text" id="question3" name="question3"><br>
-            <label for="question4">Întrebarea 4: </label>
-            <input type="text" id="question4" name="question4"><br>
-            <label for="question5">Întrebarea 5: </label>
-            <input type="text" id="question5" name="question5"><br>
+            <div>
+                <label>Întrebarea 1: Do you know how many women suffer domestic violence in the world?</label><br>
+                <input type="radio" id="q1a1" name="question1" value="greșit">
+                <label for="q1a1">587 million women</label><br>
+                <input type="radio" id="q1a2" name="question1" value="corect">
+                <label for="q1a2">736 million women</label><br>
+                <input type="radio" id="q1a3" name="question1" value="greșit">
+                <label for="q1a3">1.9 billion women</label>
+            </div>
+            <div>
+                <label>Întrebarea 2: Worldwide estimate, how many percent of women have been subjected to some form of physical and/or sexual violence by their intimate partner from the age of 15-49?</label><br>
+                <input type="radio" id="q2a1" name="question2" value="greșit">
+                <label for="q2a1">35%</label><br>
+                <input type="radio" id="q2a2" name="question2" value="corect">
+                <label for="q2a2">27%</label><br>
+                <input type="radio" id="q2a3" name="question2" value="greșit">
+                <label for="q2a3">11%</label>
+            </div>
+            <div>
+                <label>Întrebarea 3: What is the documented number of female teens and pre adults that have been victims of any form of sexual assault?</label><br>
+                <input type="radio" id="q3a1" name="question3" value="greșit">
+                <label for="q3a1">7 million</label><br>
+                <input type="radio" id="q3a2" name="question3" value="greșit">
+                <label for="q3a2">12 million</label><br>
+                <input type="radio" id="q3a3" name="question3" value="corect">
+                <label for="q3a3">15 million</label>
+            </div>
             <input type="submit" value="Trimite">
         </form>
+        <p id="errorMessage" class="error"></p>
     </div>
     <div class="video-section">
         <video width="640" height="360" controls autoplay loop>
@@ -70,9 +91,24 @@
     <script>
         document.getElementById('questionnaireForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            document.querySelector('.questionnaire').style.display = 'none';
-            document.querySelector('.video-section').style.display = 'block';
-            document.querySelector('.products-section').style.display = 'block';
+            const answers = document.querySelectorAll('input[type="radio"]:checked');
+            if (answers.length < 3) { // update this number based on the total number of questions
+                document.getElementById('errorMessage').innerText = "Te rog să răspunzi la toate întrebările.";
+                return;
+            }
+            let allCorrect = true;
+            answers.forEach(answer => {
+                if (answer.value !== "corect") {
+                    allCorrect = false;
+                }
+            });
+            if (allCorrect) {
+                document.querySelector('.questionnaire').style.display = 'none';
+                document.querySelector('.video-section').style.display = 'block';
+                document.querySelector('.products-section').style.display = 'block';
+            } else {
+                document.getElementById('errorMessage').innerText = "Te rog să răspunzi corect la toate întrebările.";
+            }
         });
     </script>
 </body>
