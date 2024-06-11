@@ -19,7 +19,7 @@
         .questionnaire input[type="submit"] {
             margin-top: 10px;
         }
-        .video-section, .products-section {
+        .video-section, .products-section, .answers-section {
             display: none;
             margin: 20px;
         }
@@ -88,6 +88,12 @@
             <a href="https://linkprodus3.com" target="_blank"><img src="produs3.jpg" alt="Produs 3"></a>
         </div>
     </div>
+    <div class="answers-section">
+        <h2>Răspunsurile corecte la întrebări sunt:</h2>
+        <p>1. 736 million women</p>
+        <p>2. 27%</p>
+        <p>3. 15 million</p>
+    </div>
     <script>
         document.getElementById('questionnaireForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -96,19 +102,12 @@
                 document.getElementById('errorMessage').innerText = "Te rog să răspunzi la toate întrebările.";
                 return;
             }
-            let allCorrect = true;
-            answers.forEach(answer => {
-                if (answer.value !== "corect") {
-                    allCorrect = false;
-                }
-            });
-            if (allCorrect) {
-                document.querySelector('.questionnaire').style.display = 'none';
-                document.querySelector('.video-section').style.display = 'block';
-                document.querySelector('.products-section').style.display = 'block';
-            } else {
-                document.getElementById('errorMessage').innerText = "Te rog să răspunzi corect la toate întrebările.";
-            }
+
+            // Hide the questionnaire and show the video, products, and answers sections
+            document.querySelector('.questionnaire').style.display = 'none';
+            document.querySelector('.video-section').style.display = 'block';
+            document.querySelector('.products-section').style.display = 'block';
+            document.querySelector('.answers-section').style.display = 'block';
         });
     </script>
 </body>
