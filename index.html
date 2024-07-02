@@ -16,7 +16,7 @@
             color: #333;
         }
 
-        #quiz-container, #video-container, #products-container, #description-container {
+        #quiz-container, #video-container, #products-container {
             margin: 20px 0;
         }
 
@@ -29,16 +29,32 @@
         }
 
         .product {
-            margin: 10px 0;
+            margin: 10px;
+            width: calc(50% - 20px); /* Ajustăm lățimea pentru a asigura două produse pe rând */
+            float: left; /* Aliniem la stânga pentru a forma două coloane */
+            box-sizing: border-box; /* Asigurăm că padding-ul și border-ul nu măresc dimensiunile elementului */
+            text-align: center; /* Centrăm conținutul */
         }
 
         .product img {
             width: 100px;
             height: 100px;
+            display: block; /* Asigurăm că imaginea este afișată ca un bloc */
+            margin: 0 auto 10px; /* Margin pentru a centra imaginea vertical */
         }
 
-        .description {
-            margin: 10px 0;
+        .product p {
+            margin: 5px 0;
+        }
+
+        .product-description {
+            font-size: 14px;
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
         }
     </style>
 </head>
@@ -102,62 +118,41 @@
     
     <div id="products-container" style="display:none;">
         <h2>Products</h2>
-        <div class="product">
-            <img src="https://raw.githubusercontent.com/fanesoltuz/Readem.md/main/images/product.1.jpg" alt="Product 1">
-            <p><a href="product1-link.html">Product 1</a></p>
+        <div class="row">
+            <div class="product">
+                <img src="https://raw.githubusercontent.com/fanesoltuz/Readem.md/main/images/product.1.jpg" alt="Product 1">
+                <p><a href="product1-link.html">Product 1</a></p>
+                <p class="product-description">Descrierea pentru Product 1.</p>
+            </div>
+            <div class="product">
+                <img src="https://raw.githubusercontent.com/fanesoltuz/Readem.md/main/images/product.2.jpg" alt="Product 2">
+                <p><a href="product2-link.html">Product 2</a></p>
+                <p class="product-description">Descrierea pentru Product 2.</p>
+            </div>
         </div>
-        <div class="product">
-            <img src="https://github.com/fanesoltuz/Readem.md/blob/main/images/product.2.jpg" alt="Product 2">
-            <p><a href="product2-link.html">Product 2</a></p>
+        <div class="row">
+            <div class="product">
+                <img src="https://raw.githubusercontent.com/fanesoltuz/Readem.md/main/images/product.5.jpg" alt="Product 3">
+                <p><a href="product3-link.html">Product 3</a></p>
+                <p class="product-description">Descrierea pentru Product 3.</p>
+            </div>
+            <div class="product">
+                <img src="https://raw.githubusercontent.com/fanesoltuz/Readem.md/main/images/product.6.jpg" alt="Product 4">
+                <p><a href="product4-link.html">Product 4</a></p>
+                <p class="product-description">Descrierea pentru Product 4.</p>
+            </div>
         </div>
-        <div class="product">
-            <img src="https://github.com/fanesoltuz/Readem.md/blob/main/images/product.3.jpg" alt="Product 3">
-            <p><a href="product3-link.html">Product 3</a></p>
-        </div>
-        <div class="product">
-            <img src="https://github.com/fanesoltuz/Readem.md/blob/main/images/product.4.jpg" alt="Product 4">
-            <p><a href="product4-link.html">Product 4</a></p>
-        </div>
-        <div class="product">
-            <img src="https://github.com/fanesoltuz/Readem.md/blob/main/images/product.5.jpg" alt="Product 5">
-            <p><a href="product5-link.html">Product 5</a></p>
-        </div>
-         <div class="product">
-            <img src="https://github.com/fanesoltuz/Readem.md/blob/main/images/product.6.jpg" alt="Product 6">
-            <p><a href="product6-link.html">Product 6</a></p>
-        </div>
-    </div>
-
-    <div id="description-container" style="display:none;">
-        <h2>Product Descriptions</h2>
-        <div class="description" id="description-product1">
-            <h3>Product 1</h3>
-            <p>This is the description for Product 1.     
-                A black cotton heavyweight crewneck t-shirt with the front print of a surrealist image by Japanese photographer Kansuke Yamamoto on the chest.
-                And a poem by Iris Pendleton, a surviving victim of abuse, as a back print.
-                33% of the money gathered through the sales of the garments and accessories will be donated to the Pangea Foundation to support all of their honorable causes.</p>
-        </div>
-        <div class="description" id="description-product2">
-            <h3>Product 2</h3>
-            <p>This is the description for Product 2.</p>
-        </div>
-        <div class="description" id="description-product3">
-            <h3>Product 3</h3>
-            <p>This is the description for Product 3. 
-                100% recycled cotton tote bag with an all-over print of Kansuke Yamamoto's "Untitled" artwork on one side of the bag.
-                33% of the money gathered through the sales of the garments and accessories will be donated to the Pangea Foundation to support all of their honorable causes. </p>
-        </div>
-        <div class="description" id="description-product4">
-            <h3>Product 4</h3>
-            <p>This is the description for Product 4.</p>
-        </div>
-        <div class="description" id="description-product5">
-            <h3>Product 5</h3>
-            <p>This is the description for Product 5.</p>
-        </div>
-         <div class="description" id="description-product6">
-            <h3>Product 6</h3>
-            <p>This is the description for Product 6.</p>
+        <div class="row">
+            <div class="product">
+                <img src="https://raw.githubusercontent.com/fanesoltuz/Readem.md/main/images/product.3.jpg" alt="Product 5">
+                <p><a href="product5-link.html">Product 5</a></p>
+                <p class="product-description">Descrierea pentru Product 5.</p>
+            </div>
+            <div class="product">
+                <img src="https://raw.githubusercontent.com/fanesoltuz/Readem.md/main/images/product.4.jpg" alt="Product 6">
+                <p><a href="product6-link.html">Product 6</a></p>
+                <p class="product-description">Descrierea pentru Product 6.</p>
+            </div>
         </div>
     </div>
 
@@ -166,7 +161,6 @@
             document.getElementById('quiz-container').style.display = 'none';
             document.getElementById('video-container').style.display = 'block';
             document.getElementById('products-container').style.display = 'block';
-            document.getElementById('description-container').style.display = 'block';
 
             document.getElementById('question-answer-q1').innerHTML = "<strong>What is the documented number of women worldwide who have been victims of domestic violence as a result of a study published in September of 2023?</strong><br>Correct Answer: 736 million women<br>Globally, an estimated 736 million women—almost one in three—have been subjected to physical and/or sexual intimate partner violence, non-partner sexual violence, or both at least once in their life (30 per cent of women aged 15 and older). This figure does not include sexual harassment.";
             document.getElementById('question-answer-q2').innerHTML = "<strong>In the European Union, what percentage of women have been victims of forced sex at some point in their life since the age of 15?</strong><br>Correct Answer: 45% to 55%<br>45% to 55% of women have experienced sexual harassment since the age of 15 in the European Union confirmed by an EU-wide Survey done by the European Union Agency for Fundamental Rights in 2014.";
